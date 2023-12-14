@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>UserID</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <ul id="body"></ul>
+    </table>
+    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick="fetchAPI1()">fetch</button>
+    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick="array()">array20</button>
+    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick="fetchAPI_random()">random</button>
+    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick="fetchAPI_reverse()">reverse</button>
+    <script>
+        function fetchAPI1(){
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((data) => data.json())
+                .then((data) => {
+                    const tbody = document.getElementById('body'); 
+                    data.forEach(element => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${element.userId}</td><td>${element.id}</td><td>${element.title}</td><td>${element.completed}</td>`;
+                        tbody.appendChild(row);
+                    });
+                });
+        }
+        function fetchAPI_random(){
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((data) => data.json())
+                .then((data) => {
+                    const tbody = document.getElementById('body'); 
+                    data.forEach(element => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${element.userId}</td><td>${element.id}</td><td>${element.title}</td><td>${element.completed}</td>`;
+                        tbody.appendChild(row);
+                        data.sort(() => Math.random() - 0.5)
+                    });
+                });
+        }
+        function fetchAPI_reverse(){
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((data) => data.json())
+                .then((data) => {
+                    const tbody = document.getElementById('body'); 
+                    data.reverse().forEach(element => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${element.userId}</td><td>${element.id}</td><td>${element.title}</td><td>${element.completed}</td>`;
+                        tbody.appendChild(row);
+                    });
+                });
+        }
+
+        function array(){
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((data) => data.json())
+                .then((data) => console.log(data[20]));
+        }
+    </script>
+</body>
+</html>

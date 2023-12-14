@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="hitungFactorial()">Hitung</button>
+    <!-- <script>
+        const switchCase = () => {
+            let data = prompt("COBA MASUK: ").toLowerCase()
+
+            console.log(data)
+
+            switch(data){
+                case "januari":
+                    alert("makan")
+                break
+                case "februari":
+                    alert("muntah")
+                break
+                default:
+                    alert("minum")
+            }
+        }
+    </script> -->
+    <div id="demo"></div>
+    <script>
+        function hitungFactorial(n){
+            if (n==0 || n==1){
+                return 1
+            } else {
+                return n * hitungFactorial(n-1);
+            }
+        }
+        let n = parseFloat(prompt("MASUKIN ANGKA anu: "))
+        document.getElementById("demo").innerHTML = n
+        
+    </script>
+</body>
+</html>
