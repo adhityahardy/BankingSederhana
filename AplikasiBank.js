@@ -99,7 +99,6 @@
         // Run
         addCustomer('andi', '1234');
         deposit('1234', 7000);
-        deposit('1234', 7000);
         withdraw('1234', 2000);
         checkBalance('1234');
         viewTransactionHistory('1234');
