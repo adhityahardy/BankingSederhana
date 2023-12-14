@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <button onclick="switchCase()">Try</button>
+
+    <script>
+        const switchCase = () => {
+            // let data = prompt("Masukkan data anda!!").toLowerCase()
+            let data = prompt("Masukkan data anda!!").toUpperCase()
+
+            console.log(data)
+
+            switch(data){
+                case "SENIN":
+                    alert("Meeting")
+                    break
+                default:
+                    alert("Libur")
+            }
+        }
+    </script>
+</body>
+</html>
